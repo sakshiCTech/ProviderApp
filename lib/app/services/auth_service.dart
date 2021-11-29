@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:home_services_provider/common/console.dart';
 
 import '../models/user_model.dart';
 import '../repositories/user_repository.dart';
@@ -21,7 +22,6 @@ class AuthService extends GetxService {
       // if (Get.isRegistered<SettingsService>()) {
       //   Get.find<SettingsService>().address.value.userId = _user.id;
       // }
-      Get.log('user : $_user');
       if (_user != null) {
         _box.write('current_user', _user.toJson());
       }
@@ -38,7 +38,7 @@ class AuthService extends GetxService {
     await _box.remove('current_user');
   }
 
-  bool get isAuth => user.value != null;
+  bool get isAuth => user.value.accessToken != null;
 
   String get apiToken => isAuth ? user.value.accessToken : '';
 }

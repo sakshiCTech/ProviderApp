@@ -6,7 +6,7 @@ import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' as foundation;
 import 'package:get/get.dart';
-import 'package:home_services_provider/app/models/document_model.dart';
+import '../models/document_model.dart';
 
 // import 'package:home_services_provider/app/models/document_model.dart';
 // import '../models/CategoryModel.dart';
@@ -133,9 +133,9 @@ class LaravelApiClient extends GetxService with ApiClient {
           }),
     );
     Console.log(response.data);
-    try {
+    if (response.statusCode == 200) {
       return User.fromJson(response.data);
-    } catch (e) {
+    } else {
       throw new Exception(response.data['message']);
     }
   }
@@ -1331,7 +1331,8 @@ class LaravelApiClient extends GetxService with ApiClient {
     // }
   }
 
-  Future uploadProviderDocuments(Map<String, dynamic> data) async {
+  Future<List<DocumentModel>> uploadProviderDocuments(
+      Map<String, dynamic> data) async {
     Uri _uri = getApiBaseUri("provider/profile/documents/store");
     printUri(StackTrace.current, _uri);
     Console.log(data);

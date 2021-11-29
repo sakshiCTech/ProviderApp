@@ -1,13 +1,16 @@
 import 'package:get/get.dart' show GetPage, Transition;
-import 'package:home_services_provider/app/modules/forgot_password/forgot_password_binding.dart';
-import 'package:home_services_provider/app/modules/forgot_password/forgot_password_view.dart';
-import 'package:home_services_provider/app/modules/login/login_binding.dart';
-import 'package:home_services_provider/app/modules/login/login_view.dart';
-import 'package:home_services_provider/app/modules/register/phone_verification_view.dart';
-import 'package:home_services_provider/app/modules/register/register_binding.dart';
-import 'package:home_services_provider/app/modules/register/register_view.dart';
-import 'package:home_services_provider/app/modules/root/root_binding.dart';
-import 'package:home_services_provider/app/modules/root/root_view.dart';
+import '../middlewares/documents_middleware.dart';
+import '../modules/document_upload/document_upload_binding.dart';
+import '../modules/document_upload/document_upload_view.dart';
+import '../modules/forgot_password/forgot_password_binding.dart';
+import '../modules/forgot_password/forgot_password_view.dart';
+import '../modules/login/login_binding.dart';
+import '../modules/login/login_view.dart';
+import '../modules/register/phone_verification_view.dart';
+import '../modules/register/register_binding.dart';
+import '../modules/register/register_view.dart';
+import '../modules/root/root_binding.dart';
+import '../modules/root/root_view.dart';
 // import '../modules/settings/views/address_picker_view.dart';
 
 import '../middlewares/auth_middleware.dart';
@@ -41,14 +44,14 @@ import '../middlewares/auth_middleware.dart';
 import 'app_routes.dart';
 
 class Theme1AppPages {
-  static const INITIAL = Routes.LOGIN;
+  static const INITIAL = Routes.ROOT;
 
   static final routes = [
     GetPage(
         name: Routes.ROOT,
         page: () => RootPage(),
         binding: RootBinding(),
-        middlewares: [AuthMiddleware()]),
+        middlewares: [AuthMiddleware(), DocumentsMiddleware()]),
     // GetPage(name: Routes.CHAT, page: () => ChatsView(), binding: RootBinding()),
     // GetPage(name: Routes.SETTINGS, page: () => SettingsView(), binding: SettingsBinding()),
     // GetPage(name: Routes.SETTINGS_THEME_MODE, page: () => ThemeModeView(), binding: SettingsBinding()),
@@ -68,6 +71,10 @@ class Theme1AppPages {
         name: Routes.PHONE_VERIFICATION,
         page: () => PhoneVerificationView(),
         binding: RegisterBinding()),
+    GetPage(
+        name: Routes.UPLOAD_DOCUMENTS,
+        page: () => DocumentUploadPage(),
+        binding: DocumentUploadBinding()),
     // GetPage(name: Routes.E_SERVICE, page: () => EServiceView(), binding: EServicesBinding(), transition: Transition.downToUp),
     // GetPage(name: Routes.E_SERVICE_FORM, page: () => EServiceFormView(), binding: EServicesBinding()),
     // GetPage(name: Routes.OPTIONS_FORM, page: () => OptionsFormView(), binding: EServicesBinding()),
