@@ -26,8 +26,12 @@ class FirebaseProvider extends GetxService {
   }
 
   Future<bool> signUpWithEmailAndPassword(String email, String password) async {
-    fba.UserCredential result = await _auth.createUserWithEmailAndPassword(
-        email: email, password: password);
+    // fba.UserCredential result = await _auth.createUserWithEmailAndPassword(
+    //     email: email, password: password);
+    fba.AuthCredential credential =
+        fba.EmailAuthProvider.credential(email: email, password: password);
+    fba.UserCredential result =
+        await _auth.currentUser.linkWithCredential(credential);
     if (result.user != null) {
       return true;
     } else {
