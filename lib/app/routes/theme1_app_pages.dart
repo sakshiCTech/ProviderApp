@@ -1,4 +1,6 @@
 import 'package:get/get.dart' show GetPage, Transition;
+import '../modules/root/bindings/root_binding.dart';
+import '../modules/root/views/root_view.dart';
 import '../middlewares/documents_middleware.dart';
 import '../modules/document_upload/document_upload_binding.dart';
 import '../modules/document_upload/document_upload_view.dart';
@@ -9,8 +11,8 @@ import '../modules/login/login_view.dart';
 import '../modules/register/phone_verification_view.dart';
 import '../modules/register/register_binding.dart';
 import '../modules/register/register_view.dart';
-import '../modules/root/root_binding.dart';
-import '../modules/root/root_view.dart';
+// import '../modules/root/root_binding.dart';
+// import '../modules/root/root_view.dart';
 // import '../modules/settings/views/address_picker_view.dart';
 
 import '../middlewares/auth_middleware.dart';
@@ -49,7 +51,7 @@ class Theme1AppPages {
   static final routes = [
     GetPage(
         name: Routes.ROOT,
-        page: () => RootPage(),
+        page: () => RootView(),
         binding: RootBinding(),
         middlewares: [AuthMiddleware(), DocumentsMiddleware()]),
     // GetPage(name: Routes.CHAT, page: () => ChatsView(), binding: RootBinding()),
