@@ -37,20 +37,22 @@ class DocumentUploadPage extends GetView<DocumentUploadLogic> {
               : ListView.builder(
                   primary: true,
                   itemCount: controller.documents.length,
-                  itemBuilder: (context, index) => AutoCompleteTextFieldWidget(
-                      labelText: controller.documents[index].name.tr,
-                      hintText: controller.documents[index].name.tr.tr,
-                      // initialValue: controller.currentUser?.value?.email,
-                      // onSaved: (input) =>
-                      //     controller.currentUser.value.email = input,
-                      controller: controller.fieldControllers[index],
-                      validator: (input) => input.isEmpty
-                          ? "Should be a valid id proof".tr
-                          : null,
-                      iconData: Icons.perm_identity_outlined,
-                      isFirst: index == 0,
-                      isLast: index == (controller.documents.length - 1),
-                      onTap: () => controller.selectDocument(index)),
+                  itemBuilder: (context, index) => Obx(()=> AutoCompleteTextFieldWidget(
+                        labelText: controller.documents[index].name.tr,
+                        hintText: controller.documents[index].name.tr.tr,
+                        // initialValue: controller.currentUser?.value?.email,
+                        // onSaved: (input) =>
+                        //     controller.currentUser.value.email = input,
+                        controller: controller.fieldControllers[index],
+                        expiryDate: controller.expiryDates[index],
+                        validator: (input) => input.isEmpty
+                            ? "Should be a valid id proof".tr
+                            : null,
+                        iconData: Icons.perm_identity_outlined,
+                        isFirst: index == 0,
+                        isLast: index == (controller.documents.length - 1),
+                        onTap: () => controller.selectDocument(index)),
+                  ),
                 ),
         ),
       ),

@@ -1349,6 +1349,7 @@ class LaravelApiClient extends GetxService with ApiClient {
             return status < 500;
           }),
     );
+    Console.log('response.body${response.data}');
     if (response.statusCode == 200) {
       // response.data['data']['auth'] = true;
       return response.data['documents']

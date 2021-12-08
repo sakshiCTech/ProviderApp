@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:home_services_provider/common/console.dart';
-
+import 'package:intl/intl.dart';
 import '../../../common/ui.dart';
 
 class AutoCompleteTextFieldWidget extends StatelessWidget {
@@ -29,7 +29,8 @@ class AutoCompleteTextFieldWidget extends StatelessWidget {
       this.style,
       this.textAlign,
       this.suffix,
-      this.controller})
+      this.controller,
+      this.expiryDate})
       : super(key: key);
 
   final FormFieldSetter<String> onSaved;
@@ -50,9 +51,13 @@ class AutoCompleteTextFieldWidget extends StatelessWidget {
   final Widget suffixIcon;
   final Widget suffix;
   final TextEditingController controller;
+  final Rx<String> expiryDate;
 
   @override
   Widget build(BuildContext context) {
+    Console.log('isFirst: $isFirst');
+    Console.log('isLast: $isLast');
+    Console.log('expdata: $expiryDate');
     return Container(
       padding: EdgeInsets.only(top: 20, bottom: 14, left: 20, right: 20),
       margin: EdgeInsets.only(
@@ -99,6 +104,35 @@ class AutoCompleteTextFieldWidget extends StatelessWidget {
             },
             readOnly: true,
           ),
+          Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+            InkWell(
+              child: Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                          color: Get.theme.focusColor.withOpacity(0.5),
+                          width: 2),
+                      borderRadius: BorderRadius.circular(4)),
+                  padding: EdgeInsets.all(8),
+                  child: Obx(
+                    () => Text(
+                      expiryDate.value,
+                      style: Get.textTheme.bodyText2,
+                    ),
+                  )),
+              onTap: () async {
+                var selectedDate = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime.now(),
+                    lastDate: DateTime(2030));
+                if (selectedDate != null) {
+                  expiryDate.value =
+                      DateFormat('dd-MM-yyyy').format(selectedDate);
+                  Console.log('selectedDate: $selectedDate');
+                }
+              },
+            ),
+          ])
         ],
       ),
     );
