@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart' as dio;
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:home_services_provider/app/routes/app_routes.dart';
 import 'package:home_services_provider/common/console.dart';
 import '../../../common/ui.dart';
 import '../../../common/image_picker_dialog.dart';
@@ -71,6 +72,9 @@ class DocumentUploadLogic extends GetxController {
       }
       loading.value = false;
       Get.showSnackbar(Ui.SuccessSnackBar(message: 'Upload Success full'));
+      Future.delayed(Duration(seconds: 2), () {
+        Get.toNamed(Routes.ROOT);
+      });
     } catch (e) {
       Get.showSnackbar(Ui.ErrorSnackBar(message: e.toString()));
     } finally {

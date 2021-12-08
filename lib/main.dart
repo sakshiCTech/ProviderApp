@@ -24,6 +24,7 @@ void initServices() async {
   await Get.putAsync(() => FirebaseProvider().init());
   await Get.putAsync(() => SettingsService().init());
   Get.log('All services started...');
+  await Get.find<AuthService>().getUserStatus();
 }
 
 void main() async {

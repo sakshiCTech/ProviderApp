@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:home_services_provider/common/console.dart';
+import '../../common/console.dart';
 
 import '../models/user_model.dart';
 import '../repositories/user_repository.dart';
@@ -30,6 +30,14 @@ class AuthService extends GetxService {
       user.value = User.fromJson(await _box.read('current_user'));
     }
     return this;
+  }
+
+  Future getUserStatus() async {
+    try {
+      user.value.status = await _usersRepo.getUserStatus();
+    } catch (e) {
+      Console.log('error: $e');
+    }
   }
 
   Future removeCurrentUser() async {

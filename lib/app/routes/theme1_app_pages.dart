@@ -1,7 +1,9 @@
 import 'package:get/get.dart' show GetPage, Transition;
+import 'package:home_services_provider/app/modules/user_status/user_status_binding.dart';
+import 'package:home_services_provider/app/modules/user_status/user_status_view.dart';
 import '../modules/root/bindings/root_binding.dart';
 import '../modules/root/views/root_view.dart';
-import '../middlewares/documents_middleware.dart';
+import '../middlewares/user_status_middleware.dart';
 import '../modules/document_upload/document_upload_binding.dart';
 import '../modules/document_upload/document_upload_view.dart';
 import '../modules/forgot_password/forgot_password_binding.dart';
@@ -11,6 +13,7 @@ import '../modules/login/login_view.dart';
 import '../modules/register/phone_verification_view.dart';
 import '../modules/register/register_binding.dart';
 import '../modules/register/register_view.dart';
+
 // import '../modules/root/root_binding.dart';
 // import '../modules/root/root_view.dart';
 // import '../modules/settings/views/address_picker_view.dart';
@@ -53,7 +56,7 @@ class Theme1AppPages {
         name: Routes.ROOT,
         page: () => RootView(),
         binding: RootBinding(),
-        middlewares: [AuthMiddleware(), DocumentsMiddleware()]),
+        middlewares: [AuthMiddleware(), UserStatusMiddleware()]),
     // GetPage(name: Routes.CHAT, page: () => ChatsView(), binding: RootBinding()),
     // GetPage(name: Routes.SETTINGS, page: () => SettingsView(), binding: SettingsBinding()),
     // GetPage(name: Routes.SETTINGS_THEME_MODE, page: () => ThemeModeView(), binding: SettingsBinding()),
@@ -77,6 +80,10 @@ class Theme1AppPages {
         name: Routes.UPLOAD_DOCUMENTS,
         page: () => DocumentUploadPage(),
         binding: DocumentUploadBinding()),
+    GetPage(
+        name: Routes.USER_STATUS,
+        page: () => UserStatusPage(),
+        binding: UserStatusBinding()),
     // GetPage(name: Routes.E_SERVICE, page: () => EServiceView(), binding: EServicesBinding(), transition: Transition.downToUp),
     // GetPage(name: Routes.E_SERVICE_FORM, page: () => EServiceFormView(), binding: EServicesBinding()),
     // GetPage(name: Routes.OPTIONS_FORM, page: () => OptionsFormView(), binding: EServicesBinding()),

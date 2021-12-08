@@ -1332,4 +1332,16 @@ class LaravelApiClient extends GetxService with ApiClient {
       throw new Exception(response.data['message']);
     }
   }
+
+  Future<String> getUserStatus() async {
+    Uri _uri = getApiBaseUri("provider/providerrecord");
+    printUri(StackTrace.current, _uri);
+    var response = await _httpClient.getUri(_uri, options: _optionsNetwork);
+    Console.log(response.data);
+    if (response.statusCode == 200) {
+      return response.data['status'];
+    } else {
+      throw new Exception(response.data['message']);
+    }
+  }
 }

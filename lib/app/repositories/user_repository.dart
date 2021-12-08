@@ -65,4 +65,9 @@ class UserRepository {
     _firebaseProvider = Get.find<FirebaseProvider>();
     return await _firebaseProvider.signOut();
   }
+
+  Future<String> getUserStatus() async {
+    _laravelApiClient = Get.find<LaravelApiClient>();
+    return _laravelApiClient.getUserStatus();
+  }
 }

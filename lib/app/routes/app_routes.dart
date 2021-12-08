@@ -3,6 +3,7 @@ class Routes {
   static const REGISTER = '/register';
   static const SELECT_OFFERING = '/select_offering';
   static const UPLOAD_DOCUMENTS = '/upload_documents';
+  static const USER_STATUS = '/user_status';
   static const FORGOT_PASSWORD = '/forgot_password';
   static const PHONE_VERIFICATION = '/phone_verification';
 
