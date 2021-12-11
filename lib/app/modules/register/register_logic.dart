@@ -59,17 +59,20 @@ class RegisterLogic extends GetxController {
         "gender": gender.value,
         "password": password,
         "password_confirmation": password,
-        "device_token": await Get.find<FireBaseMessagingService>().getDeviceToken(),
+        "device_token":
+            await Get.find<FireBaseMessagingService>().getDeviceToken(),
         "device_id": "device_id",
         "device_type": "android",
         "referral_unique_id": "referral_id"
       };
-      currentUser.value = await _userRepository.register(data);
+      User user = await _userRepository.register(data);
       await _userRepository.signUpWithEmailAndPassword(email, password);
       // await Get.find<RootController>().changePage(0);
+      currentUser.value = user;
       loading.value = false;
       await Get.offAllNamed(Routes.ROOT);
     } catch (e) {
+      await _userRepository.deleteUser();
       loading.value = false;
       Get.back();
       Get.showSnackbar(Ui.ErrorSnackBar(message: e.toString()));

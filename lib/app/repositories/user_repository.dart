@@ -70,4 +70,9 @@ class UserRepository {
     _laravelApiClient = Get.find<LaravelApiClient>();
     return _laravelApiClient.getUserStatus();
   }
+
+  Future<void>deleteUser() async{
+    _firebaseProvider = Get.find<FirebaseProvider>();
+    return _firebaseProvider.deleteUser();
+  }
 }

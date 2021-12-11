@@ -76,4 +76,9 @@ class FirebaseProvider extends GetxService {
   Future signOut() async {
     return await _auth.signOut();
   }
+
+  Future<void> deleteUser() {
+    return _auth.currentUser.delete();
+  }
 }
+
