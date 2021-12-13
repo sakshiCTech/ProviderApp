@@ -5,11 +5,15 @@ import 'package:home_services_provider/common/ui.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ImagePickerDialog extends StatefulWidget {
-  const ImagePickerDialog({Key key, this.title}) : super(key: key);
+  const ImagePickerDialog({Key key, this.title, this.quality = 30})
+      : super(key: key);
+  final int quality;
   final String title;
 
-  static Future show() async {
-    return Get.bottomSheet(ImagePickerDialog());
+  static Future show({int quality}) async {
+    return Get.bottomSheet(ImagePickerDialog(
+      quality: quality ?? 30,
+    ));
   }
 
   @override
@@ -20,7 +24,8 @@ class _ImagePickerDialogState extends State<ImagePickerDialog> {
   Future _pickImage(ImageSource source) async {
     final ImagePicker _picker = ImagePicker();
     // Pick an image
-    final XFile image = await _picker.pickImage(source: source);
+    final XFile image =
+        await _picker.pickImage(source: source, imageQuality: widget.quality);
     if (image != null) {
       Console.log("image.path ${image.path}");
       await Get.back(result: image.path);
