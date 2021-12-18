@@ -16,9 +16,9 @@ class RootBinding extends Bindings {
       () => RootController(),
     );
     Get.put(HomeController(), permanent: true);
-    // Get.lazyPut<BookingController>(
-    //   () => BookingController(),
-    // );
+    Get.lazyPut<BookingController>(
+      () => BookingController(),
+    );
     // Get.lazyPut<ReviewsController>(
     //   () => ReviewsController(),
     // );

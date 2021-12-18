@@ -1,4 +1,6 @@
 import 'package:get/get.dart' show GetPage, Transition;
+import '../modules/help_privacy/views/privacy_view.dart';
+import '../modules/bookings/views/booking_view.dart';
 import '../modules/user_status/user_status_binding.dart';
 import '../modules/user_status/user_status_view.dart';
 import '../modules/your_srvices/your_services_binding.dart';
@@ -100,7 +102,7 @@ class Theme1AppPages {
     // GetPage(name: Routes.HELP, page: () => HelpView(), binding: HelpPrivacyBinding()),
     // GetPage(name: Routes.CUSTOM_PAGES, page: () => CustomPagesView(), binding: CustomPagesBinding()),
     // GetPage(name: Routes.REVIEW, page: () => ReviewView(), binding: RootBinding()),
-    // GetPage(name: Routes.BOOKING, page: () => BookingView(), binding: RootBinding()),
+    GetPage(name: Routes.BOOKING, page: () => BookingView(), binding: RootBinding()),
     // GetPage(name: Routes.GALLERY, page: () => GalleryView(), binding: GalleryBinding(), transition: Transition.fadeIn),
     // GetPage(name: Routes.SETTINGS_ADDRESS_PICKER, page: () => AddressPickerView()),
   ];
