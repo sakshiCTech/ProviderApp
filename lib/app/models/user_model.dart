@@ -1,5 +1,3 @@
-import 'package:home_services_provider/app/models/parents/model.dart';
-
 class User {
   int id;
   String firstName;
@@ -12,7 +10,6 @@ class User {
   double longitude;
   String address;
   int otp;
-  int commissionPercentage;
   String language;
   String avatar;
   String countryCode;
@@ -44,45 +41,44 @@ class User {
 
   User(
       {this.id,
-      this.firstName,
-      this.lastName,
-      this.agentId,
-      this.email,
-      this.gender,
-      this.geoFencingId,
-      this.latitude,
-      this.longitude,
-      this.address,
-      this.otp,
-      this.commissionPercentage,
-      this.language,
-      this.avatar,
-      this.countryCode,
-      this.mobile,
-      this.password,
-      this.blocked,
-      this.verified,
-      this.status,
-      this.stripeAccId,
-      this.stripeCustId,
-      this.paypalEmail,
-      this.loginBy,
-      this.socialUniqueId,
-      this.walletBalance,
-      this.referralUniqueId,
-      this.qrcodeUrl,
-      this.deletedAt,
-      this.rememberToken,
-      this.createdAt,
-      this.updatedAt,
-      this.accessToken,
-      this.currency,
-      this.sos,
-      this.measurement,
-      this.services,
-      this.rating,
-      this.service,
-      this.device});
+        this.firstName,
+        this.lastName,
+        this.agentId,
+        this.email,
+        this.gender,
+        this.geoFencingId,
+        this.latitude,
+        this.longitude,
+        this.address,
+        this.otp,
+        this.language,
+        this.avatar,
+        this.countryCode,
+        this.mobile,
+        this.password,
+        this.blocked,
+        this.verified,
+        this.status,
+        this.stripeAccId,
+        this.stripeCustId,
+        this.paypalEmail,
+        this.loginBy,
+        this.socialUniqueId,
+        this.walletBalance,
+        this.referralUniqueId,
+        this.qrcodeUrl,
+        this.deletedAt,
+        this.rememberToken,
+        this.createdAt,
+        this.updatedAt,
+        this.accessToken,
+        this.currency,
+        this.sos,
+        this.measurement,
+        this.services,
+        this.rating,
+        this.service,
+        this.device});
 
   User.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -96,7 +92,6 @@ class User {
     longitude = json['longitude'];
     address = json['address'];
     otp = json['otp'];
-    commissionPercentage = json['commission_percentage'];
     language = json['language'];
     avatar = json['avatar'];
     countryCode = json['country_code'];
@@ -132,7 +127,7 @@ class User {
       });
     }
     device =
-        json['device'] != null ? new Device.fromJson(json['device']) : null;
+    json['device'] != null ? new Device.fromJson(json['device']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -148,7 +143,6 @@ class User {
     data['longitude'] = this.longitude;
     data['address'] = this.address;
     data['otp'] = this.otp;
-    data['commission_percentage'] = this.commissionPercentage;
     data['language'] = this.language;
     data['avatar'] = this.avatar;
     data['country_code'] = this.countryCode;
@@ -216,16 +210,16 @@ class Service {
   String status;
   String serviceNumber;
   String serviceModel;
-  String serviceType;
+  ServiceType serviceType;
 
   Service(
       {this.id,
-      this.providerId,
-      this.serviceTypeId,
-      this.status,
-      this.serviceNumber,
-      this.serviceModel,
-      this.serviceType});
+        this.providerId,
+        this.serviceTypeId,
+        this.status,
+        this.serviceNumber,
+        this.serviceModel,
+        this.serviceType});
 
   Service.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -234,7 +228,9 @@ class Service {
     status = json['status'];
     serviceNumber = json['service_number'];
     serviceModel = json['service_model'];
-    serviceType = json['service_type'];
+    serviceType = json['service_type'] != null
+        ? new ServiceType.fromJson(json['service_type'])
+        : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -245,7 +241,96 @@ class Service {
     data['status'] = this.status;
     data['service_number'] = this.serviceNumber;
     data['service_model'] = this.serviceModel;
-    data['service_type'] = this.serviceType;
+    if (this.serviceType != null) {
+      data['service_type'] = this.serviceType.toJson();
+    }
+    return data;
+  }
+}
+
+class ServiceType {
+  int id;
+  int parentId;
+  Name name;
+  String image;
+  String marker;
+  int fixed;
+  int price;
+  int typePrice;
+  String calculator;
+  String description;
+  int status;
+  String deletedAt;
+  String createdAt;
+  String updatedAt;
+
+  ServiceType(
+      {this.id,
+        this.parentId,
+        this.name,
+        this.image,
+        this.marker,
+        this.fixed,
+        this.price,
+        this.typePrice,
+        this.calculator,
+        this.description,
+        this.status,
+        this.deletedAt,
+        this.createdAt,
+        this.updatedAt});
+
+  ServiceType.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    parentId = json['parent_id'];
+    name = json['name'] != null ? new Name.fromJson(json['name']) : null;
+    image = json['image'];
+    marker = json['marker'];
+    fixed = json['fixed'];
+    price = json['price'];
+    typePrice = json['type_price'];
+    calculator = json['calculator'];
+    description = json['description'];
+    status = json['status'];
+    deletedAt = json['deleted_at'];
+    createdAt = json['created_at'];
+    updatedAt = json['updated_at'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['parent_id'] = this.parentId;
+    if (this.name != null) {
+      data['name'] = this.name.toJson();
+    }
+    data['image'] = this.image;
+    data['marker'] = this.marker;
+    data['fixed'] = this.fixed;
+    data['price'] = this.price;
+    data['type_price'] = this.typePrice;
+    data['calculator'] = this.calculator;
+    data['description'] = this.description;
+    data['status'] = this.status;
+    data['deleted_at'] = this.deletedAt;
+    data['created_at'] = this.createdAt;
+    data['updated_at'] = this.updatedAt;
+    return data;
+  }
+}
+
+class Name {
+  String en;
+
+  Name({this.en});
+
+  Name.fromJson(Map<String, dynamic> json) {
+    en = json['en'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['en'] = this.en;
     return data;
   }
 }
@@ -261,12 +346,12 @@ class Device {
 
   Device(
       {this.id,
-      this.providerId,
-      this.udid,
-      this.token,
-      this.snsArn,
-      this.type,
-      this.jwtToken});
+        this.providerId,
+        this.udid,
+        this.token,
+        this.snsArn,
+        this.type,
+        this.jwtToken});
 
   Device.fromJson(Map<String, dynamic> json) {
     id = json['id'];

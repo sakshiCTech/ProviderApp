@@ -7,10 +7,10 @@ class UserStatusPage extends GetView<UserStatusPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      drawer: Drawer(
-        child: MainDrawerWidget(),
-        elevation: 0,
-      ),
+      // drawer: Drawer(
+      //   child: MainDrawerWidget(),
+      //   elevation: 0,
+      // ),
       body: Center(
         child: Text(
           'Please wait while\n we are verifying your documents.',

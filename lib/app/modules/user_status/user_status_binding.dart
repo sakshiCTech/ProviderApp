@@ -7,6 +7,6 @@ class UserStatusBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => UserStatusLogic());
-    Get.lazyPut(() => RootController());
+    // Get.lazyPut(() => RootController());
   }
 }
