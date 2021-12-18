@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import '../../bookings/controllers/booking_controller.dart';
 
 // import '../../account/controllers/account_controller.dart';
 // import '../../bookings/controllers/booking_controller.dart';
