@@ -6,6 +6,7 @@ import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' as foundation;
 import 'package:get/get.dart';
+import '../models/history_model.dart';
 import 'auth_interceptor.dart';
 import 'redirection_interceptor.dart';
 import '../models/document_model.dart';
@@ -1343,5 +1344,21 @@ class LaravelApiClient extends GetxService with ApiClient {
     } else {
       throw new Exception(response.data['message']);
     }
+  }
+
+  Future<List<HistoryModel>> getAllHistory() async {
+    Uri _uri = getApiBaseUri("provider/requests/history");
+    printUri(StackTrace.current, _uri);
+    var response = await _httpClient.getUri(_uri,
+        options: _optionsNetwork
+            .copyWith(headers: {'X-Requested-With': 'XMLHttpRequest'}));
+    Console.log('response.body${response.data}');
+    // if (response.statusCode == 200) {
+    return response.data
+        .map<HistoryModel>((obj) => HistoryModel.fromJson(obj))
+        .toList();
+    // } else {
+    //   throw new Exception(response.data['message']);
+    // }
   }
 }

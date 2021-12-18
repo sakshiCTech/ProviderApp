@@ -1,6 +1,8 @@
 import 'package:get/get.dart' show GetPage, Transition;
-import 'package:home_services_provider/app/modules/user_status/user_status_binding.dart';
-import 'package:home_services_provider/app/modules/user_status/user_status_view.dart';
+import '../modules/user_status/user_status_binding.dart';
+import '../modules/user_status/user_status_view.dart';
+import '../modules/your_srvices/your_services_binding.dart';
+import '../modules/your_srvices/your_services_view.dart';
 import '../modules/root/bindings/root_binding.dart';
 import '../modules/root/views/root_view.dart';
 import '../middlewares/user_status_middleware.dart';
@@ -84,6 +86,10 @@ class Theme1AppPages {
         name: Routes.USER_STATUS,
         page: () => UserStatusPage(),
         binding: UserStatusBinding()),
+    GetPage(
+        name: Routes.YOUR_SERVICES,
+        page: () => YourServicesPage(),
+        binding: YourServicesBinding()),
     // GetPage(name: Routes.E_SERVICE, page: () => EServiceView(), binding: EServicesBinding(), transition: Transition.downToUp),
     // GetPage(name: Routes.E_SERVICE_FORM, page: () => EServiceFormView(), binding: EServicesBinding()),
     // GetPage(name: Routes.OPTIONS_FORM, page: () => OptionsFormView(), binding: EServicesBinding()),

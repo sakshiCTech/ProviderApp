@@ -29,5 +29,7 @@ class Routes {
   static const CUSTOM_PAGES = '/custom-pages';
   static const GALLERY = '/gallery';
 
+  static const YOUR_SERVICES = '/your_services';
+
   static const SETTINGS_ADDRESS_PICKER = '/settings/address_picker';
 }
