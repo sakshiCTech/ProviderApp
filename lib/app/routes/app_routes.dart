@@ -32,4 +32,6 @@ class Routes {
   static const YOUR_SERVICES = '/your_services';
 
   static const SETTINGS_ADDRESS_PICKER = '/settings/address_picker';
+
+  static var WALLET = '/wallet';
 }

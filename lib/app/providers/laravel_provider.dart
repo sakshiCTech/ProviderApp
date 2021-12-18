@@ -6,6 +6,7 @@ import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' as foundation;
 import 'package:get/get.dart';
+import '../models/wallet_model.dart';
 import '../models/history_model.dart';
 import 'auth_interceptor.dart';
 import 'redirection_interceptor.dart';
@@ -1360,5 +1361,17 @@ class LaravelApiClient extends GetxService with ApiClient {
     // } else {
     //   throw new Exception(response.data['message']);
     // }
+  }
+
+  Future<WalletModel> getWalletTransactions() async{
+    Uri _uri = getApiBaseUri("provider/wallettransaction");
+    printUri(StackTrace.current, _uri);
+    var response = await _httpClient.getUri(_uri, options: _optionsNetwork);
+    Console.log(response.data);
+    if (response.statusCode == 200) {
+      return WalletModel.fromJson(response.data);
+    } else {
+      throw new Exception(response.data['message']);
+    }
   }
 }
