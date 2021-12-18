@@ -1,4 +1,5 @@
 import 'package:get/get.dart' show GetPage, Transition;
+import '../modules/help_privacy/bindings/help_privacy_binding.dart';
 import '../modules/help_privacy/views/privacy_view.dart';
 import '../modules/bookings/views/booking_view.dart';
 import '../modules/user_status/user_status_binding.dart';
@@ -100,7 +101,7 @@ class Theme1AppPages {
     // GetPage(name: Routes.E_SERVICES, page: () => EServicesView(), binding: EServicesBinding()),
     // GetPage(name: Routes.SEARCH, page: () => SearchView(), binding: RootBinding(), transition: Transition.downToUp),
     // GetPage(name: Routes.NOTIFICATIONS, page: () => NotificationsView(), binding: NotificationsBinding()),
-    // GetPage(name: Routes.PRIVACY, page: () => PrivacyView(), binding: HelpPrivacyBinding()),
+    GetPage(name: Routes.PRIVACY, page: () => PrivacyView(), binding: HelpPrivacyBinding()),
     // GetPage(name: Routes.HELP, page: () => HelpView(), binding: HelpPrivacyBinding()),
     // GetPage(name: Routes.CUSTOM_PAGES, page: () => CustomPagesView(), binding: CustomPagesBinding()),
     // GetPage(name: Routes.REVIEW, page: () => ReviewView(), binding: RootBinding()),
