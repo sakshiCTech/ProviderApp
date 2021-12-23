@@ -40,7 +40,9 @@ class MainDrawerWidget extends StatelessWidget {
                     children: [
                       Text("Welcome".tr,
                           style: Get.textTheme.headline5.merge(TextStyle(
-                              color: Get.theme.colorScheme.secondary))),
+                              // color: Get.theme.colorScheme.secondary
+                              color:Color(0xff5B7BB6),
+                              ))),
                       SizedBox(height: 5),
                       Text("Login account or create new one for free".tr,
                           style: Get.textTheme.bodyText1),
@@ -52,7 +54,8 @@ class MainDrawerWidget extends StatelessWidget {
                             onPressed: () {
                               Get.toNamed(Routes.LOGIN);
                             },
-                            color: Get.theme.colorScheme.secondary,
+                            // color: Get.theme.colorScheme.secondary,
+                            color:Color(0xff5B7BB6),
                             height: 40,
                             elevation: 0,
                             child: Wrap(
@@ -145,7 +148,9 @@ class MainDrawerWidget extends StatelessWidget {
                         right: 0,
                         // child: Get.find<AuthService>().user.value.verifiedPhone ?? false ? Icon(Icons.check_circle, color: Get.theme.colorScheme.secondary, size: 24) : SizedBox(),
                         child: Icon(Icons.check_circle,
-                            color: Get.theme.colorScheme.secondary, size: 24),
+                            // color: Get.theme.colorScheme.secondary, 
+                            color:Color(0xff5B7BB6),
+                            size: 24),
                       )
                     ],
                   ),

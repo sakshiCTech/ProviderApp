@@ -24,7 +24,8 @@ class PhoneVerificationView extends GetView<RegisterLogic> {
                   .merge(TextStyle(color: context.theme.primaryColor)),
             ),
             centerTitle: true,
-            backgroundColor: Get.theme.colorScheme.secondary,
+            // backgroundColor: Get.theme.colorScheme.secondary,
+            backgroundColor: Color(0xff5B7BB6),
             automaticallyImplyLeading: false,
             elevation: 0,
             leading: new IconButton(
@@ -43,7 +44,8 @@ class PhoneVerificationView extends GetView<RegisterLogic> {
                     height: 180,
                     width: Get.width,
                     decoration: BoxDecoration(
-                      color: Get.theme.colorScheme.secondary,
+                      // color: Get.theme.colorScheme.secondary,
+                      color: Color(0xff5B7BB6),
                       borderRadius:
                           BorderRadius.vertical(bottom: Radius.circular(10)),
                       boxShadow: [
@@ -120,7 +122,8 @@ class PhoneVerificationView extends GetView<RegisterLogic> {
                         onPressed: () async {
                           await controller.verifyPhone();
                         },
-                        color: Get.theme.colorScheme.secondary,
+                        // color: Get.theme.colorScheme.secondary,
+                        color: Color(0xff5B7BB6),
                         text: Text(
                           "Verify".tr,
                           style: Get.textTheme.headline6

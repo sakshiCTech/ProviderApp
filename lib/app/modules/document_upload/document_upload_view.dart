@@ -21,7 +21,7 @@ class DocumentUploadPage extends GetView<DocumentUploadLogic> {
               .merge(TextStyle(color: context.theme.primaryColor)),
         ),
         centerTitle: true,
-        backgroundColor: Get.theme.colorScheme.secondary,
+        // backgroundColor: Get.theme.colorScheme.secondary,
         automaticallyImplyLeading: false,
         elevation: 0,
         leading: new IconButton(

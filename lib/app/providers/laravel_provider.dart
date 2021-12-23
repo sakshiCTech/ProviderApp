@@ -6,6 +6,7 @@ import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' as foundation;
 import 'package:get/get.dart';
+import 'package:home_services_provider/app/models/forgot_password.dart';
 import '../models/wallet_model.dart';
 import '../models/history_model.dart';
 import 'auth_interceptor.dart';
@@ -42,11 +43,13 @@ import '../models/setting_model.dart';
 // import '../models/statistic.dart';
 import '../models/user_model.dart';
 import 'api_provider.dart';
+import 'package:http/http.dart' as http;
 
 class LaravelApiClient extends GetxService with ApiClient {
   dio.Dio _httpClient;
   dio.Options _optionsNetwork;
   dio.Options _optionsCache;
+  ForgotPassword forgotPassword;
 
   LaravelApiClient() {
     this.baseUrl = this.globalService.global.value.laravelBaseUrl;
@@ -145,6 +148,17 @@ class LaravelApiClient extends GetxService with ApiClient {
     } else {
       throw new Exception(response.data['message']);
     }
+  }
+
+  Future<bool> forgotPass(Map<String, dynamic> data) async{
+    var response = await http.post(
+        Uri.parse("https://pro.assign.co.nz/api/provider/forgot/password"),
+        body: data);
+    print("response is" + response.toString());
+    // var decode=jsonDecode(response.body);
+    forgotPassword=jsonDecode(response.body);
+    forgotPassword=jsonDecode(response.body);
+
   }
 
   Future<User> updateUser(User user) async {
@@ -1363,7 +1377,7 @@ class LaravelApiClient extends GetxService with ApiClient {
     // }
   }
 
-  Future<WalletModel> getWalletTransactions() async{
+  Future<WalletModel> getWalletTransactions() async {
     Uri _uri = getApiBaseUri("provider/wallettransaction");
     printUri(StackTrace.current, _uri);
     var response = await _httpClient.getUri(_uri, options: _optionsNetwork);

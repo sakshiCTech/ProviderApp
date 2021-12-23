@@ -51,7 +51,8 @@ class BookingView extends GetView<BookingController> {
                     elevation: 0,
                     onPressed: () => openMapsSheet(context, controller.booking.value.address, controller.booking.value.id),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                    color: Get.theme.colorScheme.secondary,
+                    // color: Get.theme.colorScheme.secondary,
+                    color:Color(0xff5B7BB6),
                     child: Wrap(
                       crossAxisAlignment: WrapCrossAlignment.center,
                       spacing: 5,
@@ -403,7 +404,8 @@ class BookingView extends GetView<BookingController> {
                 width: 80,
                 child: SizedBox.shrink(),
                 decoration: BoxDecoration(
-                  color: Get.theme.colorScheme.secondary.withOpacity(0.2),
+                  // color: Get.theme.colorScheme.secondary.withOpacity(0.2),
+                  color:Color(0xff5B7BB6),
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
                 padding: EdgeInsets.symmetric(horizontal: 5, vertical: 6),
@@ -441,7 +443,8 @@ class BookingView extends GetView<BookingController> {
                   ],
                 ),
                 decoration: BoxDecoration(
-                  color: Get.theme.colorScheme.secondary.withOpacity(0.2),
+                  // color: Get.theme.colorScheme.secondary.withOpacity(0.2),
+                  color:Color(0xff5B7BB6).withOpacity(0.2),
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
                 padding: EdgeInsets.symmetric(horizontal: 5, vertical: 6),
@@ -479,10 +482,12 @@ class BookingView extends GetView<BookingController> {
                 minWidth: 44,
                 padding: EdgeInsets.zero,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                color: Get.theme.colorScheme.secondary.withOpacity(0.2),
+                // color: Get.theme.colorScheme.secondary.withOpacity(0.2),
+                color:Color(0xff5B7BB6).withOpacity(0.2),
                 child: Icon(
                   Icons.phone_android_outlined,
-                  color: Get.theme.colorScheme.secondary,
+                  // color: Get.theme.colorScheme.secondary,
+                  color:Color(0xff5B7BB6),
                 ),
                 elevation: 0,
               ),
@@ -491,13 +496,15 @@ class BookingView extends GetView<BookingController> {
                   controller.startChat();
                 },
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                color: Get.theme.colorScheme.secondary.withOpacity(0.2),
+                // color: Get.theme.colorScheme.secondary.withOpacity(0.2),
+                color:Color(0xff5B7BB6).withOpacity(0.2),
                 padding: EdgeInsets.zero,
                 height: 44,
                 minWidth: 44,
                 child: Icon(
                   Icons.chat_outlined,
-                  color: Get.theme.colorScheme.secondary,
+                  // color: Get.theme.colorScheme.secondary,
+                  color:Color(0xff5B7BB6)
                 ),
                 elevation: 0,
               ),

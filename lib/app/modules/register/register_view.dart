@@ -27,7 +27,8 @@ class RegisterPage extends GetView<RegisterLogic> {
                 .merge(TextStyle(color: context.theme.primaryColor)),
           ),
           centerTitle: true,
-          backgroundColor: Get.theme.colorScheme.secondary,
+          // backgroundColor: Get.theme.colorScheme.secondary,
+          backgroundColor:Color(0xff5B7BB6),
           automaticallyImplyLeading: false,
           elevation: 0,
           leading: new IconButton(
@@ -49,7 +50,8 @@ class RegisterPage extends GetView<RegisterLogic> {
                     height: 160,
                     width: Get.width,
                     decoration: BoxDecoration(
-                      color: Get.theme.colorScheme.secondary,
+                      // color: Get.theme.colorScheme.secondary,
+                      color: Color(0xff5B7BB6),
                       borderRadius:
                           BorderRadius.vertical(bottom: Radius.circular(10)),
                       boxShadow: [
@@ -282,7 +284,8 @@ class RegisterPage extends GetView<RegisterLogic> {
                       // Navigator.of(context).push(MaterialPageRoute(
                       //     builder: (context) => SelectOfferingView()));
                     },
-                    color: Get.theme.colorScheme.secondary,
+                    // color: Get.theme.colorScheme.secondary,
+                    color: Color(0xff5B7BB6),
                     text: Text(
                       "Next".tr,
                       style: Get.textTheme.headline6

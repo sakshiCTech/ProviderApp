@@ -23,7 +23,8 @@ class ForgotPasswordPage extends GetView<ForgotPasswordLogic> {
                 .merge(TextStyle(color: context.theme.primaryColor)),
           ),
           centerTitle: true,
-          backgroundColor: Get.theme.colorScheme.secondary,
+          // backgroundColor: Get.theme.colorScheme.secondary,
+          backgroundColor: Color(0xff5B7BB6),
           automaticallyImplyLeading: false,
           elevation: 0,
         ),
@@ -39,7 +40,8 @@ class ForgotPasswordPage extends GetView<ForgotPasswordLogic> {
                     height: 180,
                     width: Get.width,
                     decoration: BoxDecoration(
-                      color: Get.theme.colorScheme.secondary,
+                      // color: Get.theme.colorScheme.secondary,
+                      color: Color(0xff5B7BB6),
                       borderRadius:
                           BorderRadius.vertical(bottom: Radius.circular(10)),
                       boxShadow: [
@@ -108,7 +110,8 @@ class ForgotPasswordPage extends GetView<ForgotPasswordLogic> {
                       ),
                       BlockButtonWidget(
                         onPressed: controller.sendResetLink,
-                        color: Get.theme.colorScheme.secondary,
+                        // color: Get.theme.colorScheme.secondary,
+                        color: Color(0xff5B7BB6),
                         text: Text(
                           "Send Reset Link".tr,
                           style: Get.textTheme.headline6

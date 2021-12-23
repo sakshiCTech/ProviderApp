@@ -55,7 +55,8 @@ class BookingActionsWidget extends GetView<BookingController> {
                       Icon(Icons.check, color: Get.theme.primaryColor, size: 22)
                     ],
                   ),
-                  color: Get.theme.colorScheme.secondary,
+                  // color: Get.theme.colorScheme.secondary,
+                  color:Color(0xff5B7BB6),
                   onPressed: () {
                     controller.acceptBookingService();
                   }),
@@ -81,7 +82,8 @@ class BookingActionsWidget extends GetView<BookingController> {
                             color: Get.theme.primaryColor, size: 24)
                       ],
                     ),
-                    color: Get.theme.colorScheme.secondary,
+                    // color: Get.theme.colorScheme.secondary,
+                    color:Color(0xff5B7BB6),
                     onPressed: () {
                       controller.onTheWayBookingService();
                     })),
@@ -169,7 +171,8 @@ class BookingActionsWidget extends GetView<BookingController> {
                       Icon(Icons.money, color: Get.theme.primaryColor, size: 22)
                     ],
                   ),
-                  color: Get.theme.colorScheme.secondary,
+                  // color: Get.theme.colorScheme.secondary,
+                  color:Color(0xff5B7BB6),
                   onPressed: () {
                     controller.confirmPaymentBookingService();
                   }),

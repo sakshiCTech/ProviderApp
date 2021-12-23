@@ -31,7 +31,8 @@ class WalletPage extends GetView<WalletLogic> {
             onPressed: () {},
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            color: Get.theme.colorScheme.secondary,
+            // color: Get.theme.colorScheme.secondary,
+            color:Color(0xff5B7BB6),
             child: Text("Withdrawal".tr,
                 style: Get.textTheme.bodyText2
                     .merge(TextStyle(color: Get.theme.primaryColor))),
@@ -84,7 +85,8 @@ class WalletPage extends GetView<WalletLogic> {
                                   borderRadius: BorderRadius.horizontal(
                                       right: Radius.circular(8)),
                                   child: Material(
-                                    color: Get.theme.colorScheme.secondary,
+                                    // color: Get.theme.colorScheme.secondary,
+                                    color:Color(0xff5B7BB6),
                                     child: InkWell(
                                       onTap: () {},
                                       child: Container(
